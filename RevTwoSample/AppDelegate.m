@@ -28,7 +28,7 @@
     [customizer R2customize_incomingCall_text:@"Incoming call from RevTwo Support"];
     [customizer R2customize_incomingCall_backgroundColor:[UIColor colorWithRed:177/255.0f green:193/255.0f blue:209/255.0f alpha:1] gradientOn:YES];
     [customizer R2customize_incomingCall_textColor:[UIColor blackColor]];
-    [customizer R2customize_incomingCall_image:[UIImage imageNamed:@"R2logo.png"]];
+    [customizer R2customize_incomingCall_image:[UIImage imageNamed:@"logo.png"]];
     
     //Adding files for file browser
     BOOL success;
@@ -149,7 +149,7 @@
  */
 // Handle updated push credentials
 - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials: (PKPushCredentials *)credentials forType:(NSString *)type {
-    R2Trace(@"update apns token");
+    R2Trace(@"update apns token: %@",credentials.token);
     R2UpdatePushCredentials(credentials.token);
 }
 

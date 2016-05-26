@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F039B0AD999959D5C7324CF4'
-               BlueprintName = 'RevTwo'
+               BlueprintIdentifier = 'A3125C6E8E52A79740721C75'
+               BlueprintName = 'Revtwo'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libRevTwo.a'>
+               BuildableName = 'libRevtwo.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

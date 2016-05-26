@@ -7,7 +7,9 @@
 //
 
 #import "TutorialTableViewController.h"
-#import "R2CommunityCallViewController.h"
+#import "R2CommunityViewController.h"
+#import "R2MyTicketViewController.h"
+
 
 @interface TutorialTableViewController ()
 
@@ -101,13 +103,13 @@
         
         //newTicket
         else if ([tutorial isEqualToString:@"Create New Ticket"]){
-            R2NewTicketViewController *vc = [[R2NewTicketViewController alloc]init];
-            [self presentViewController:vc animated:YES completion:^{}];
+            R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
             
         }
         //community
         else if ([tutorial isEqualToString:@"Community"]) {
-            R2CommunityTableViewController *vc = [[R2CommunityTableViewController alloc]init];
+            R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

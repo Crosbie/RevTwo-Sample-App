@@ -261,6 +261,7 @@
 				TargetAttributes = {
 					D88304A51B95F3F8007ABDAC = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = BKCY9GA5T7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -524,7 +525,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.revtwo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.revtwo.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -545,9 +546,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.revtwo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.revtwo.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48bd21f5-cb5a-4ec5-b94f-a161a3c3596d";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
