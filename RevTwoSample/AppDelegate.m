@@ -159,7 +159,7 @@
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type {
     // Process the received push
     R2Trace(@"got push notification");
-    R2ReceivedNotification();
+    R2ReceivedNotification(payload.dictionaryPayload);
 }
 
 @end
