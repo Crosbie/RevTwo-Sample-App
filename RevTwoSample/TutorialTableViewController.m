@@ -28,8 +28,8 @@
                       @"Logging",
                       @"File Browsing",
                       @"SQLite Database",
-                      @"Create New Ticket",
-                      @"Community",
+                      @"My Help Requests",
+                      @"Community Requests",
                       nil];
     self.pickedTutorial = NO;
     
@@ -102,14 +102,16 @@
         }
         
         //newTicket
-        else if ([tutorial isEqualToString:@"Create New Ticket"]){
+        else if ([tutorial isEqualToString:@"My Help Requests"]){
             R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
+            vc.tags = @[@"yellow", @"blue"];
             [self.navigationController pushViewController:vc animated:YES];
             
         }
         //community
-        else if ([tutorial isEqualToString:@"Community"]) {
+        else if ([tutorial isEqualToString:@"Community Requests"]) {
             R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
+            vc.tags = @[@"yellow"];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
