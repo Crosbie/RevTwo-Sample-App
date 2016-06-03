@@ -78,9 +78,9 @@
         case 0:
             return @"Tutorials";
         case 1:
-            return @"Create Ticket";
+            return @"My Help Requests";
         case 2:
-            return @"Community Tickets";
+            return @"Community Requests";
         default:
             return nil;
     }
@@ -165,6 +165,7 @@
                 {
                     //push my ticket
                     R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
+                    vc.tags = @[@"yellow", @"blue"];
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 break;
@@ -173,6 +174,7 @@
                     //modal my ticket
                     R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
                     vc.delegateModal = self;
+                    vc.tags = @[@"yellow", @"blue"];
                     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
                     [self presentViewController:nc animated:YES completion:nil];
                 }
@@ -186,6 +188,7 @@
                 {
                     //push community
                     R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
+                    vc.tags = @[@"yellow"];
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 break;
@@ -194,6 +197,7 @@
                     //modal community
                     R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
                     vc.delegateModal = self;
+                    vc.tags = @[@"yellow"];
                     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
                     [self presentViewController:nc animated:YES completion:nil];
                 }
