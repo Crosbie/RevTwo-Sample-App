@@ -28,20 +28,10 @@
                       @"Logging",
                       @"File Browsing",
                       @"SQLite Database",
-                      @"Create New Ticket",
-                      @"Community",
                       nil];
     self.pickedTutorial = NO;
     
     
-    
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -59,15 +49,48 @@
 
 #pragma mark - Table view data source
 
+
+
+
+/*
+ * SECTIONS
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 3;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [self.tutorials count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return [self.tutorials count];
+        case 1:
+            return 2;
+        case 2:
+            return 2;
+        default:
+            return 0;
+    }
 }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"Tutorials";
+        case 1:
+            return @"Create Ticket";
+        case 2:
+            return @"Community Tickets";
+        default:
+            return nil;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60.0;
+}
+/*
+ * CELL
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tutorialCell" forIndexPath:indexPath];
     
@@ -75,89 +98,120 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tutorialCell"];
     }
-    cell.textLabel.text = [self.tutorials objectAtIndex:indexPath.row];
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *tutorial = [self.tutorials objectAtIndex:indexPath.row];
-    if (!self.pickedTutorial) {
-        self.pickedTutorial = YES;
-        //Logging
-        if ([tutorial isEqualToString:@"Logging"]) {
-            LoggingViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Logging"];
-            [self.navigationController pushViewController:vc animated:YES];
+    //Tutorials
+    if (indexPath.section == 0){
+        cell.textLabel.text = [self.tutorials objectAtIndex:indexPath.row];
+    }
+    //Create Ticket
+    else if (indexPath.section == 1){
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"Push My Ticket View";
+                break;
+            case 1:
+                cell.textLabel.text = @"Modal My Ticket View";
+                break;
         }
-        //FileBrowser
-        else if ([tutorial isEqualToString:@"File Browsing"]) {
-            FileBrowserViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FileBrowser"];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        
-        //DatabaseBrowser
-        else if ([tutorial isEqualToString:@"SQLite Database"]) {
-            SQLiteBrowserViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DatabaseBrowser"];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        
-        //newTicket
-        else if ([tutorial isEqualToString:@"Create New Ticket"]){
-            R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        //community
-        else if ([tutorial isEqualToString:@"Community"]) {
-            R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+    }
+    //Community Ticket
+    else if (indexPath.section == 2){
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"Push Community View";
+                break;
+            case 1:
+                cell.textLabel.text = @"Modal Community View";
+                break;
         }
     }
     
+    return cell;
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+ * SELECT CELL
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //Tutorials
+    if (indexPath.section == 0){
+        NSString *tutorial = [self.tutorials objectAtIndex:indexPath.row];
+        if (!self.pickedTutorial) {
+            self.pickedTutorial = YES;
+            //Logging
+            if ([tutorial isEqualToString:@"Logging"]) {
+                LoggingViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Logging"];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            //FileBrowser
+            else if ([tutorial isEqualToString:@"File Browsing"]) {
+                FileBrowserViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FileBrowser"];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+            //DatabaseBrowser
+            else if ([tutorial isEqualToString:@"SQLite Database"]) {
+                SQLiteBrowserViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DatabaseBrowser"];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+            
+        }
+    }
+    //Create Ticket
+    else if (indexPath.section == 1){
+        switch (indexPath.row) {
+            case 0:
+                {
+                    //push my ticket
+                    R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                break;
+            case 1:
+                {
+                    //modal my ticket
+                    R2MyTicketViewController *vc = [[R2MyTicketViewController alloc]init];
+                    vc.delegateModal = self;
+                    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                    [self presentViewController:nc animated:YES completion:nil];
+                }
+                break;
+        }
+    }
+    //Community Ticket
+    else if (indexPath.section == 2){
+        switch (indexPath.row) {
+            case 0:
+                {
+                    //push community
+                    R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                break;
+            case 1:
+                {
+                    //modal community
+                    R2CommunityViewController *vc = [[R2CommunityViewController alloc]init];
+                    vc.delegateModal = self;
+                    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                    [self presentViewController:nc animated:YES completion:nil];
+                }
+                break;
+        }
+    }
+    
+    
+    
+    
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+- (void)didDismissR2ViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

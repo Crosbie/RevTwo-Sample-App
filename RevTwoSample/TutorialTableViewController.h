@@ -12,8 +12,9 @@
 #import "SQLiteBrowserViewController.h"
 #import "R2NewTicketViewController.h"
 #import "R2CommunityTableViewController.h"
+#import "RevTwo.h"
 
-@interface TutorialTableViewController : UITableViewController
+@interface TutorialTableViewController : UITableViewController <R2ViewControllerDelegate>
 
 @property NSArray *tutorials;
 @property BOOL pickedTutorial;
