@@ -1,1 +1,61 @@
-COCOAPODS: 0.39.0
+PODS:
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - Firebase (3.2.1):
+    - Firebase/Core (= 3.2.1)
+  - Firebase/Analytics (3.2.1):
+    - FirebaseAnalytics (= 3.2.0)
+  - Firebase/Core (3.2.1):
+    - Firebase/Analytics (= 3.2.1)
+  - FirebaseAnalytics (3.2.0):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.3)
+  - FirebaseInstanceID (1.0.6)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - JSQMessagesViewController (7.3.2):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - libjingle_peerconnection (11177.2.0)
+  - PubNub (4.3.3):
+    - CocoaLumberjack (= 2.3.0)
+    - PubNub/Core (= 4.3.3)
+  - PubNub/Core (4.3.3):
+    - CocoaLumberjack (= 2.3.0)
+  - RevTwo (2.1.1):
+    - Firebase (>= 2.5.1)
+    - JSQMessagesViewController
+    - libjingle_peerconnection
+    - PubNub (~> 4.0)
+
+DEPENDENCIES:
+  - RevTwo
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  Firebase: 6c80ac28d59d06bfd9152a7b6ea17625ca93183d
+  FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
+  FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  JSQMessagesViewController: bf14e4d644e1c59476f47f2f8410c34c6c0294f3
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  libjingle_peerconnection: 3458f646ddd61f08a9f3a0c43fb01fff5c165eb8
+  PubNub: 51acd937c947d931a75d2caef654fd12f7573e09
+  RevTwo: 48a84485932fda2ce51be99cfea9e5237c189660
+
+PODFILE CHECKSUM: 01baa1a7edd06fcbf7d0a7f6a955325cd880ad3a
+
+COCOAPODS: 1.0.1

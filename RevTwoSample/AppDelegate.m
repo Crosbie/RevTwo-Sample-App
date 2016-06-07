@@ -21,7 +21,7 @@
     //make sure you run pod install, see our docs for more info:
     // http://revtwo.com/docs/index.php/tutorials/
     /////////////////////////////////////////////////////////////////////////////////
-    R2Initialize(@"ADD YOUR KEY HERE",@"ADD YOUR PRIVATE KEY HERE", R2MODE_DEVELOPMENT);
+    R2Initialize(@"15C8A31A-8A8A-5484-83DF-C5A07C954EBE",@"CVv3MmQz7cg2FxHrqfDTZ4btK", R2MODE_DEVELOPMENT);
     
     //customizations
     Revtwo *customizer = [[Revtwo alloc] init];
